@@ -1,0 +1,34 @@
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\appsettings.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\Credit bank.staticwebassets.endpoints.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\Credit bank.exe
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\Credit bank.deps.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\Credit bank.runtimeconfig.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\Credit bank.dll
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\Credit bank.pdb
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.csproj.AssemblyReference.cache
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.AssemblyInfoInputs.cache
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.AssemblyInfo.cs
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.csproj.CoreCompileInputs.cache
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.sourcelink.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\scopedcss\bundle\Credit bank.styles.css
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets\msbuild.Credit bank.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets\msbuild.Credit bank.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets\msbuild.build.Credit bank.props
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.Credit bank.props
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.Credit bank.props
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit b.C408F224.Up2Date
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.dll
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\refint\Credit bank.dll
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.pdb
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\Credit bank.genruntimeconfig.cache
+C:\Users\EvGenii\RiderProjects\Credit bank\Credit bank\obj\Debug\net9.0\ref\Credit bank.dll
