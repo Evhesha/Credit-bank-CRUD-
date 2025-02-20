@@ -19,19 +19,41 @@ public class CreditRecordRepository
             .ToList();
     }
 
-    // public async Task<int> CreateCreditRecordAsync(CreditRecord creditRecord)
-    // {
-    //     
-    // }
-    //
-    // public async Task<int> UpdateCreditRecordAsync(
-    //     string firstName,
-    //     string lastName,
-    //     decimal amount,
-    //     decimal interestRate)
-    // {
-    //     
-    // }
+    public async Task<int> CreateCreditRecordAsync(CreditRecord creditRecord)
+    {
+        var creditRecordEntity = new CreditRecord
+        {
+            CreditRecordId = creditRecord.CreditRecordId,
+            FirstName = creditRecord.FirstName,
+            LastName = creditRecord.LastName,
+            CreditAmount = creditRecord.CreditAmount,
+            InterestRate = creditRecord.InterestRate
+        };
+
+        return creditRecord.CreditRecordId;
+    }
+    
+    public async Task<int> UpdateCreditRecordAsync(
+        int id,
+        string firstName,
+        string lastName,
+        decimal amount,
+        decimal interestRate)
+    {
+        var creditRecord = await _context.CreditRecords.FindAsync(id);
+
+        if (creditRecord is not null)
+        {
+            creditRecord.FirstName = firstName;
+            creditRecord.LastName = lastName;
+            creditRecord.CreditAmount = amount;
+            creditRecord.InterestRate = interestRate;
+
+            await _context.SaveChangesAsync();
+        }
+        
+        return id;
+    }
 
     public async Task<int> DeleteCredticRecordAsync(int id)
     {

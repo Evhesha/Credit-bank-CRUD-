@@ -1,6 +1,0 @@
-﻿services:
-  credit bankcreditbank:
-    image: credit
-    build:
-      context: .
-      dockerfile: Credit bank/Dockerfile
