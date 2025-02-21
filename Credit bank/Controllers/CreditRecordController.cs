@@ -46,7 +46,7 @@ public class CreditRecordController : ControllerBase
         return Ok(recordId);
     }
 
-    [HttpPut("{id:guid}")]
+    [HttpPut("{id:int}")]
     public async Task<ActionResult<int>> UpdateCreditRecord(int id, CreditRecord creditRecord)
     {
         var creditRecordId = await _repository.UpdateCreditRecordAsync(
@@ -59,7 +59,7 @@ public class CreditRecordController : ControllerBase
         return Ok(creditRecordId);
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteCreditRecord(int id)
     {
         return Ok(await _repository.DeleteCredticRecordAsync(id));
