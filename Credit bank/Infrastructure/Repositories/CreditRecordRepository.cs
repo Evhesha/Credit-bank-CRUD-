@@ -1,9 +1,10 @@
-﻿using Credit_bank.Models;
+﻿using Credit_bank.Abstractions;
+using Credit_bank.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Credit_bank.Infrastructure.Repositories;
 
-public class CreditRecordRepository
+public class CreditRecordRepository : ICreditRecordRepository
 {
     private readonly ApplicationDbContext _context;
 
@@ -30,6 +31,9 @@ public class CreditRecordRepository
             InterestRate = creditRecord.InterestRate
         };
 
+        await _context.CreditRecords.AddAsync(creditRecordEntity);
+        await _context.SaveChangesAsync();
+        
         return creditRecord.CreditRecordId;
     }
     
