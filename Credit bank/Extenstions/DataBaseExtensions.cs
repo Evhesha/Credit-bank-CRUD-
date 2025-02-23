@@ -1,6 +1,15 @@
-﻿namespace Credit_bank.Extenstions;
+﻿using Credit_bank.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
-public class DataBaseExtensions
+namespace Credit_bank.Extenstions;
+
+public static class DataBaseExtensions
 {
-    
+    public static IServiceCollection AddDataBase(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+
+        return services;
+    }
 }

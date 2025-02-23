@@ -1,0 +1,15 @@
+.Form-container {
+    max-width: 600px;
+    background-color: #95c4d0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Form-container .form-control {
+    margin-bottom: 15px;
+  }
+  
+  .Form-container .btn-primary {
+    width: 100%;
+  }
