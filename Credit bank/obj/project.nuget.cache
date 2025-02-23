@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "caD6HjrZC4g=",
+  "dgSpecHash": "EPiw83dXNo4=",
   "success": true,
   "projectFilePath": "C:\\Users\\EvGenii\\RiderProjects\\Credit bank\\Credit bank\\Credit bank.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.3.0\\microsoft.aspnetcore.authentication.core.2.3.0.nupkg.sha512",
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.3.0\\microsoft.aspnetcore.authorization.2.3.0.nupkg.sha512",
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.3.0\\microsoft.aspnetcore.authorization.policy.2.3.0.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.3.0\\microsoft.aspnetcore.cors.2.3.0.nupkg.sha512",
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.3.0\\microsoft.aspnetcore.hosting.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.3.0\\microsoft.aspnetcore.hosting.server.abstractions.2.3.0.nupkg.sha512",
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.aspnetcore.http\\2.3.0\\microsoft.aspnetcore.http.2.3.0.nupkg.sha512",

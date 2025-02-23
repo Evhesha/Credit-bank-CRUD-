@@ -1,4 +1,5 @@
 using Credit_bank.Abstractions;
+using Credit_bank.Extenstions;
 using Credit_bank.Infrastructure;
 using Credit_bank.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -7,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenAnyIP(5248); // HTTP
+    options.ListenAnyIP(5248);
     options.ListenAnyIP(7234, listenOptions =>
     {
-        listenOptions.UseHttps(); // Используем сертификат по умолчанию
+        listenOptions.UseHttps();
     });
 });
 
@@ -23,6 +24,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<ICreditRecordRepository, CreditRecordRepository>();
+builder.Services.AddCustomCors(builder.Configuration);
 
 var app = builder.Build();
 
@@ -34,6 +36,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();
 
