@@ -1,6 +1,6 @@
 export const postData = async (data) => {
     try {
-      const response = await fetch('https://api.example.com/data', {
+      const response = await fetch('https://localhost:7234/api/CreditRecord', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -14,4 +14,3 @@ export const postData = async (data) => {
       throw error;
     }
   };
-  
