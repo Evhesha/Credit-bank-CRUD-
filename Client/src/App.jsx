@@ -1,11 +1,13 @@
 import "./App.css";
 import Button from "react-bootstrap/Button";
+
 import { fetchData } from "./queries/fetchData";
 import { deleteData } from "./queries/deleteData";
 
 import { useState, useEffect } from "react";
 import FillForm from "./fillForm/fillForm";
 import ListGroup from "react-bootstrap/ListGroup";
+import UpdatePopUp from "./PopUps/UpdatePopUp";
 
 function App() {
   const [data, setData] = useState([]);
@@ -42,10 +44,12 @@ function App() {
         <ListGroup>
           {data.map((el, index) => (
             <ListGroup.Item key={index}>
-              {el.firstName} {el.lastName} {el.creditAmount} {el.interestRate}
-              <Button variant="danger" onClick={() => handleDelete(el.creditRecordId)}>Delete record</Button>
-              <Button variant="primary">Update record</Button>
-            </ListGroup.Item>
+            {el.firstName} {el.lastName} {el.creditAmount} {el.interestRate}
+            <div className="button-container">
+              <Button variant="danger" onClick={() => handleDelete(el.creditRecordId)}>Delete</Button>
+              <UpdatePopUp></UpdatePopUp>
+            </div>
+          </ListGroup.Item>          
           ))}
         </ListGroup>
       </header>

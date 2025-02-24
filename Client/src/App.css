@@ -2,3 +2,21 @@
   max-width: 600px;
   margin: 0 auto; /* центрируем форму */
 }
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; /* Расстояние между кнопками */
+}
+
+.ListGroup.Item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ListGroup.Item div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
