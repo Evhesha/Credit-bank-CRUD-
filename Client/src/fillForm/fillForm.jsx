@@ -26,7 +26,7 @@ function FillForm() {
 
   return (
     <div className="Form-container">
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>First name</Form.Label>
           <Form.Control
@@ -55,7 +55,7 @@ function FillForm() {
             onChange={(e) => setInterestRate(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={() => handleSubmit}>
+        <Button variant="primary" type="submit">
           Create record
         </Button>
       </Form>

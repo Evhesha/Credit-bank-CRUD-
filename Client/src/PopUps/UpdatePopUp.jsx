@@ -2,10 +2,9 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { useEffect } from "react";
-import { postData } from "../queries/postData";
+import { putData } from "../queries/putData";
 
-function UpdatePopUp() {
+function UpdatePopUp({ id }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -24,8 +23,11 @@ function UpdatePopUp() {
       creditAmount,
       interestRate,
     };
-    postData(data)
-      .then((result) => console.log("Success:", result))
+    putData(data, id)
+      .then((result) => {
+        console.log("Success:", result);
+        handleClose();
+      })
       .catch((error) => console.error("Error:", error));
   };
 
@@ -39,42 +41,48 @@ function UpdatePopUp() {
         <Modal.Header closeButton>
           <Modal.Title>Record update</Modal.Title>
         </Modal.Header>
-        <Modal.Footer>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>First name</Form.Label>
-            <Form.Control
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Last name</Form.Label>
-            <Form.Control
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Credit amount</Form.Label>
-            <Form.Control
-              value={creditAmount}
-              onChange={(e) => setCreditAmount(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Interest rate</Form.Label>
-            <Form.Control
-              value={interestRate}
-              onChange={(e) => setInterestRate(e.target.value)}
-            />
-          </Form.Group>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formFirstName">
+              <Form.Label>First name</Form.Label>
+              <Form.Control
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formLastName">
+              <Form.Label>Last name</Form.Label>
+              <Form.Control
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formCreditAmount">
+              <Form.Label>Credit amount</Form.Label>
+              <Form.Control
+                type="number"
+                value={creditAmount}
+                onChange={(e) => setCreditAmount(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formInterestRate">
+              <Form.Label>Interest rate</Form.Label>
+              <Form.Control
+                type="number"
+                value={interestRate}
+                onChange={(e) => setInterestRate(e.target.value)}
+              />
+            </Form.Group>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" type="submit">
+              Save Changes
+            </Button>
+          </Form>
+        </Modal.Body>
       </Modal>
     </>
   );
