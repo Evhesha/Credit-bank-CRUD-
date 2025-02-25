@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./fillForm.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { postData } from "../queries/postData";
 
 function FillForm() {
@@ -13,6 +13,15 @@ function FillForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isValidNumber(creditAmount) || !isValidNumber(interestRate)) {
+      alert('Please enter valid numbers for Credit Amount and Interest Rate');
+      return;
+    }
+    if (firstName === "" || lastName === ""){
+      alert('First name and Last name can not be empty');
+      return;
+    }
+
     const data = {
       firstName,
       lastName,
@@ -22,6 +31,10 @@ function FillForm() {
     postData(data)
       .then(result => console.log('Success:', result))
       .catch(error => console.error('Error:', error));
+  };
+
+  const isValidNumber = (value) => {
+    return !isNaN(value) && value > 0;
   };
 
   return (

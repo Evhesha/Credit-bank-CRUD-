@@ -4,19 +4,28 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { putData } from "../queries/putData";
 
-function UpdatePopUp({ id }) {
+function UpdatePopUp({ id, fn, ln, ca, ir }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [creditAmount, setCreditAmount] = useState("");
-  const [interestRate, setInterestRate] = useState("");
+  const [firstName, setFirstName] = useState(fn);
+  const [lastName, setLastName] = useState(ln);
+  const [creditAmount, setCreditAmount] = useState(ca);
+  const [interestRate, setInterestRate] = useState(ir);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isValidNumber(creditAmount) || !isValidNumber(interestRate)) {
+      alert('Please enter valid numbers for Credit Amount and Interest Rate');
+      return;
+    }
+    if (firstName === "" || lastName === ""){
+      alert('First name and Last name can not be empty');
+      return;
+    }
+    
     const data = {
       firstName,
       lastName,
@@ -29,6 +38,10 @@ function UpdatePopUp({ id }) {
         handleClose();
       })
       .catch((error) => console.error("Error:", error));
+  };
+
+  const isValidNumber = (value) => {
+    return !isNaN(value) && value > 0;
   };
 
   return (
