@@ -2,6 +2,7 @@ import "./App.css";
 import Button from "react-bootstrap/Button";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
+import Form from 'react-bootstrap/Form';
 
 import { fetchData } from "./queries/fetchData";
 import { deleteData } from "./queries/deleteData";
@@ -15,6 +16,8 @@ import UpdatePopUp from "./PopUps/UpdatePopUp";
 function App() {
   const [data, setData] = useState([]);
   const [sortType, setSortType] = useState("");
+  const [searchType, setSearchType] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   const handleFetch = () => {
     fetchData()
@@ -49,6 +52,13 @@ function App() {
     setData(sortedData);
   };
 
+  const handleSearch = (sortKey) =>{
+    setSearchType(sortKey);
+    // const searchedData = [...data].find(a) => {
+      
+    // }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -67,6 +77,26 @@ function App() {
           <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
         </DropdownButton>
         {sortType}
+        <p></p>
+        <DropdownButton
+          title="Search by"
+          id="bg-nested-dropdown"
+          onSelect={handleSearch}
+        >
+          <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
+          <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
+          <Dropdown.Item eventKey="creditAmount">credit amount</Dropdown.Item>
+          <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
+        </DropdownButton>
+        {searchType}
+        <Form.Group className="mb-3" controlId="formFirstName">
+              <Form.Label>First name</Form.Label>
+              <Form.Control
+                type="text"
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </Form.Group>
         <p></p>
         <Button variant="primary" onClick={handleFetch}>
           Fetch data
