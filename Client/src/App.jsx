@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import { fetchData } from "./queries/fetchData";
 import { deleteData } from "./queries/deleteData";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import FillForm from "./fillForm/fillForm";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -15,6 +15,7 @@ import UpdatePopUp from "./PopUps/UpdatePopUp";
 
 function App() {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [sortType, setSortType] = useState("");
   const [searchType, setSearchType] = useState("");
   const [searchText, setSearchText] = useState("");
@@ -23,6 +24,7 @@ function App() {
     fetchData()
       .then((data) => {
         setData(data);
+        setFilteredData(data);
         console.log(data);
       })
       .catch((error) => console.error("Error:", error));
@@ -34,7 +36,9 @@ function App() {
       deleteData(id)
         .then((result) => {
           console.log(result);
-          setData(data.filter((item) => item.id !== id));
+          const newData = data.filter((item) => item.creditRecordId !== id);
+          setData(newData);
+          setFilteredData(newData);
         })
         .catch((error) => console.error("Error:", error));
     }
@@ -42,22 +46,34 @@ function App() {
 
   const handleSort = (sortKey) => {
     setSortType(sortKey);
-    const sortedData = [...data].sort((a, b) => {
+    const sortedData = [...filteredData].sort((a, b) => {
       if (sortKey === "firstName" || sortKey === "lastName") {
         return a[sortKey].localeCompare(b[sortKey]);
       } else {
         return a[sortKey] - b[sortKey];
       }
     });
-    setData(sortedData);
+    setFilteredData(sortedData);
   };
 
-  const handleSearch = (sortKey) =>{
+  const handleSearch = (sortKey) => {
     setSearchType(sortKey);
-    // const searchedData = [...data].find(a) => {
-      
-    // }
-  }
+  };
+
+  const handleSearchTextChange = (text) => {
+    setSearchText(text);
+  };
+
+  useEffect(() => {
+    if (searchText && searchType) {
+      const searchedData = data.filter((item) =>
+        item[searchType].toString().toLowerCase().includes(searchText.toLowerCase())
+      );
+      setFilteredData(searchedData);
+    } else {
+      setFilteredData(data);
+    }
+  }, [searchText, searchType, data]);
 
   return (
     <div className="App">
@@ -90,20 +106,20 @@ function App() {
         </DropdownButton>
         {searchType}
         <Form.Group className="mb-3" controlId="formFirstName">
-              <Form.Label>First name</Form.Label>
-              <Form.Control
-                type="text"
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-              />
-            </Form.Group>
+          <Form.Label>Search text</Form.Label>
+          <Form.Control
+            type="text"
+            value={searchText}
+            onChange={(e) => handleSearchTextChange(e.target.value)}
+          />
+        </Form.Group>
         <p></p>
         <Button variant="primary" onClick={handleFetch}>
           Fetch data
         </Button>
         <p></p>
         <ListGroup>
-          {data.map((el) => (
+          {filteredData.map((el) => (
             <ListGroup.Item key={el.creditRecordId}>
               {el.firstName} {el.lastName} {el.creditAmount} {el.interestRate}
               <div className="button-container">
