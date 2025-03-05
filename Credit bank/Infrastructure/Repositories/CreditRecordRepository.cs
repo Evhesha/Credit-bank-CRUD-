@@ -15,9 +15,9 @@ public class CreditRecordRepository : ICreditRecordRepository
 
     public async Task<List<CreditRecord>> GetCreditRecordsAsync()
     {
-        return _context.CreditRecords
+        return await _context.CreditRecords
             .AsNoTracking()
-            .ToList();
+            .ToListAsync();
     }
 
     public async Task<int> CreateCreditRecordAsync(CreditRecord creditRecord)

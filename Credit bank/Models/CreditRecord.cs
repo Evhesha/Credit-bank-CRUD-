@@ -7,4 +7,5 @@ public class CreditRecord
     public string LastName { get; set; } = string.Empty;
     public decimal CreditAmount { get; set; }
     public decimal InterestRate { get; set; }
+    public int BankerId { get; set; }
 }

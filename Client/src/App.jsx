@@ -2,7 +2,7 @@ import "./App.css";
 import Button from "react-bootstrap/Button";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 
 import { fetchData } from "./queries/fetchData";
 import { deleteData } from "./queries/deleteData";
@@ -67,7 +67,10 @@ function App() {
   useEffect(() => {
     if (searchText && searchType) {
       const searchedData = data.filter((item) =>
-        item[searchType].toString().toLowerCase().includes(searchText.toLowerCase())
+        item[searchType]
+          .toString()
+          .toLowerCase()
+          .includes(searchText.toLowerCase())
       );
       setFilteredData(searchedData);
     } else {
