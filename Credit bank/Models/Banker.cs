@@ -2,7 +2,7 @@
 
 public class Banker
 {
-    public int Id { get; set; }
+    public int BankerId { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public int DepartmentNumber { get; set; }

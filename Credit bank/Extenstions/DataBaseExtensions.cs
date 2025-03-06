@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace Credit_bank.Extenstions;
-
 public static class DataBaseExtensions
 {
     public static IServiceCollection AddDataBase(this IServiceCollection services, IConfiguration configuration)

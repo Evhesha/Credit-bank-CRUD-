@@ -28,7 +28,8 @@ public class CreditRecordRepository : ICreditRecordRepository
             FirstName = creditRecord.FirstName,
             LastName = creditRecord.LastName,
             CreditAmount = creditRecord.CreditAmount,
-            InterestRate = creditRecord.InterestRate
+            InterestRate = creditRecord.InterestRate,
+            BankerId = creditRecord.BankerId,
         };
 
         await _context.CreditRecords.AddAsync(creditRecordEntity);
