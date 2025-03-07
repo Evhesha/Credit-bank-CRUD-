@@ -35,4 +35,9 @@ public class BankerService : IBankerService
     {
         return await _repository.UpdateBankerAsync(id, firstName, lastName, departmentNumber);
     }
+
+    public async Task<int> DeleteBanker(int id)
+    {
+        return await _repository.DeleteBankerAsync(id);
+    }
 }

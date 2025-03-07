@@ -11,4 +11,6 @@ public interface IBankerService
         string firstName,
         string lastName,
         int departmentNumber);
+
+    Task<int> DeleteBanker(int id);
 }

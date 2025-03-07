@@ -1,4 +1,5 @@
 ﻿using Credit_bank.Abstractions;
+using Credit_bank.Abstractions.CreditRecords;
 using Credit_bank.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,23 +9,24 @@ namespace Credit_bank.Controllers;
 [ApiController]
 public class CreditRecordController : ControllerBase
 {
-    private readonly ICreditRecordRepository _repository;
-    public CreditRecordController(ICreditRecordRepository repository)
+    private readonly ICreditRecordService _service;
+    public CreditRecordController(ICreditRecordService service)
     {
-        _repository = repository;
+        _service = service;
     }
 
     [HttpGet]
     public async Task<ActionResult<List<CreditRecord>>> GetAllCreditRecords()
     {
-        var credits = await _repository.GetCreditRecordsAsync();
+        var credits = await _service.GetAllCreditRecords();
         var response = credits.Select(c => new CreditRecord
         {
             CreditRecordId = c.CreditRecordId,
             FirstName = c.FirstName,
             LastName = c.LastName,
             CreditAmount = c.CreditAmount,
-            InterestRate = c.InterestRate
+            InterestRate = c.InterestRate,
+            BankerId = c.BankerId,
         }).ToList();
         
         return Ok(response);
@@ -39,17 +41,18 @@ public class CreditRecordController : ControllerBase
             FirstName = creditRecord.FirstName,
             LastName = creditRecord.LastName,
             CreditAmount = creditRecord.CreditAmount,
-            InterestRate = creditRecord.InterestRate
+            InterestRate = creditRecord.InterestRate,
+            BankerId = creditRecord.BankerId,
         };
         
-        var recordId = await _repository.CreateCreditRecordAsync(record);
+        var recordId = await _service.CreateCreditRecord(record);
         return Ok(recordId);
     }
 
     [HttpPut("{id:int}")]
     public async Task<ActionResult<int>> UpdateCreditRecord(int id, CreditRecord creditRecord)
     {
-        var creditRecordId = await _repository.UpdateCreditRecordAsync(
+        var creditRecordId = await _service.UpdateCreditRecord(
             id,
             creditRecord.FirstName,
             creditRecord.LastName,
@@ -62,6 +65,6 @@ public class CreditRecordController : ControllerBase
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteCreditRecord(int id)
     {
-        return Ok(await _repository.DeleteCredticRecordAsync(id));
+        return Ok(await _service.DeleteCreditRecord(id));
     }
 }
