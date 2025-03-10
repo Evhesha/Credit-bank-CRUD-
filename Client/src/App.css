@@ -1,6 +1,11 @@
-.App{
+.App {
   max-width: 600px;
-  margin: 0 auto; /* центрируем форму */
+  margin: 0 auto; /* Центрируем форму */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between; /* Располагаем компоненты по краям */
 }
 
 .button-container {
