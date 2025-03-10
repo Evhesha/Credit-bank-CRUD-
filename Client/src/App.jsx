@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 import FillForm from "./fillForm/fillForm";
 import ListGroup from "react-bootstrap/ListGroup";
 import UpdatePopUp from "./PopUps/UpdatePopUp";
+import NavBar from "./navbar/NavBar";
 
 function App() {
   const [data, setData] = useState([]);
@@ -80,6 +81,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar></NavBar>
       <header className="App-header">
         <h1>Credit bank</h1>
         <p></p>
