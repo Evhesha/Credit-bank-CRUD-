@@ -1,4 +1,4 @@
-export const putData = async (data, id) => {
+export const putRecordData = async (data, id) => {
     try {
       const response = await fetch(`https://localhost:7234/api/CreditRecord/${id}`, {
         method: 'PUT',

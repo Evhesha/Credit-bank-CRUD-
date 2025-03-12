@@ -1,4 +1,4 @@
-export const fetchData = async () => {
+export const fetchBankerData = async () => {
     try {
       const response = await fetch('https://localhost:7234/api/Banker');
       const data = await response.json();

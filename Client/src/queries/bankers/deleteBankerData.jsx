@@ -1,4 +1,4 @@
-export const deleteData = async (id) => {
+export const deleteBankerData = async (id) => {
     try {
       const response = await fetch(`https://localhost:7234/api/Banker/${id}`, {
         method: 'DELETE',

@@ -2,9 +2,9 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { putData } from "../queries/records/putRecordData";
+import { putRecordData } from "../queries/records/putRecordData";
 
-function UpdatePopUp({ id, fn, ln, ca, ir }) {
+function UpdateRecordPopUp({ id, fn, ln, ca, ir }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -32,7 +32,7 @@ function UpdatePopUp({ id, fn, ln, ca, ir }) {
       creditAmount,
       interestRate,
     };
-    putData(data, id)
+    putRecordData(data, id)
       .then((result) => {
         console.log("Success:", result);
         handleClose();
@@ -101,4 +101,4 @@ function UpdatePopUp({ id, fn, ln, ca, ir }) {
   );
 }
 
-export default UpdatePopUp;
+export default UpdateRecordPopUp;

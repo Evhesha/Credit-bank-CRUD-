@@ -2,14 +2,14 @@ import Button from "react-bootstrap/Button";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
+import ListGroup from "react-bootstrap/ListGroup";
 
-import { fetchData } from "../queries/records/fetchRecordData";
-import { deleteData } from "../queries/records/deleteRecordData";
+import { fetchRecordData } from "../../queries/records/fetchRecordData";
+import { deleteRecordData } from "../../queries/records/deleteRecordData";
 import { useState, useEffect } from "react";
 
-import FillForm from "../fillForm/fillForm";
-import ListGroup from "react-bootstrap/ListGroup";
-import UpdatePopUp from "../PopUps/UpdatePopUp";
+import FillForm from "../../fillForm/fillForm";
+import UpdateRecordPopUp from "../../PopUps/UpdateRecordPopUp";
 
 function Records(){
 
@@ -20,7 +20,7 @@ function Records(){
   const [searchText, setSearchText] = useState("");
 
   const handleFetch = () => {
-    fetchData()
+    fetchRecordData()
       .then((data) => {
         setData(data);
         setFilteredData(data);
@@ -32,7 +32,7 @@ function Records(){
   const handleDelete = (id) => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm("Are you sure, that you want to delete the record?") === true) {
-      deleteData(id)
+      deleteRecordData(id)
         .then((result) => {
           console.log(result);
           const newData = data.filter((item) => item.creditRecordId !== id);
@@ -130,13 +130,13 @@ function Records(){
                 >
                   Delete
                 </Button>
-                <UpdatePopUp
+                <UpdateRecordPopUp
                   id={el.creditRecordId}
                   fn={el.firstName}
                   ln={el.lastName}
                   ca={el.creditAmount}
                   ir={el.interestRate}
-                ></UpdatePopUp>
+                ></UpdateRecordPopUp>
               </div>
             </ListGroup.Item>
           ))}

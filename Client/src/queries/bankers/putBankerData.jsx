@@ -1,4 +1,4 @@
-export const putData = async (data, id) => {
+export const putBankerData = async (data, id) => {
     try {
       const response = await fetch(`https://localhost:7234/api/Banker/${id}`, {
         method: 'PUT',

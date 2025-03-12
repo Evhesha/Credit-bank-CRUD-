@@ -1,4 +1,4 @@
-export const deleteData = async (id) => {
+export const deleteRecordData = async (id) => {
     try {
       const response = await fetch(`https://localhost:7234/api/CreditRecord/${id}`, {
         method: 'DELETE',

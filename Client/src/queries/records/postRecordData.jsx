@@ -1,4 +1,4 @@
-export const postData = async (data) => {
+export const postRecordData = async (data) => {
     try {
       const response = await fetch('https://localhost:7234/api/CreditRecord', {
         method: 'POST',

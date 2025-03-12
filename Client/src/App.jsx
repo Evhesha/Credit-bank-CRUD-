@@ -1,6 +1,6 @@
 import "./App.css";
-import Records from "./records/Records";
-import Bankers from "./bankers/Bankers";
+import Records from "./Blocks/records/Records";
+import Bankers from "./Blocks/bankers/Bankers";
 
 function App() {
   return (
