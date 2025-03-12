@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./fillForm.css";
 import { useState } from "react";
-import { postData } from "../queries/postData";
+import { postData } from "../queries/records/postRecordData";
 
 function FillForm() {
 

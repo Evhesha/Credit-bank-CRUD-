@@ -3,8 +3,8 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 
-import { fetchData } from "../queries/fetchData";
-import { deleteData } from "../queries/deleteData";
+import { fetchData } from "../queries/records/fetchRecordData";
+import { deleteData } from "../queries/records/deleteRecordData";
 import { useState, useEffect } from "react";
 
 import FillForm from "../fillForm/fillForm";

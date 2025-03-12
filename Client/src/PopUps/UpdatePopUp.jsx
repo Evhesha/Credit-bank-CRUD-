@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { putData } from "../queries/putData";
+import { putData } from "../queries/records/putRecordData";
 
 function UpdatePopUp({ id, fn, ln, ca, ir }) {
   const [show, setShow] = useState(false);
