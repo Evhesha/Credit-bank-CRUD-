@@ -82,8 +82,7 @@ function Records(){
   return (
     <>
       <header className="App-header">
-        <h1>Credit bank</h1>
-        <p></p>
+        <h3>Credit bank</h3>
         <RecordFillForm></RecordFillForm>
         <p></p>
         <div className="button-row">

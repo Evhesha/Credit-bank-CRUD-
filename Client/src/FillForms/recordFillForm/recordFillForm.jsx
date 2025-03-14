@@ -68,6 +68,13 @@ function RecordFillForm() {
             onChange={(e) => setInterestRate(e.target.value)}
           />
         </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Banker id</Form.Label>
+          <Form.Control
+            value={interestRate}
+            onChange={(e) => setInterestRate(e.target.value)}
+          />
+        </Form.Group>
         <Button variant="primary" type="submit">
           Create record
         </Button>
