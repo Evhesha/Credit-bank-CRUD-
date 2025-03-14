@@ -8,8 +8,10 @@ import { fetchRecordData } from "../../queries/records/fetchRecordData";
 import { deleteRecordData } from "../../queries/records/deleteRecordData";
 import { useState, useEffect } from "react";
 
-import FillForm from "../../fillForm/fillForm";
+import RecordFillForm from "../../FillForms/recordFillForm/recordFillForm";
 import UpdateRecordPopUp from "../../PopUps/UpdateRecordPopUp";
+
+import './Records.css'
 
 function Records(){
 
@@ -77,34 +79,36 @@ function Records(){
     }
   }, [searchText, searchType, data]);
 
-    return<>
-     <header className="App-header">
+  return (
+    <>
+      <header className="App-header">
         <h1>Credit bank</h1>
         <p></p>
-        <FillForm></FillForm>
+        <RecordFillForm></RecordFillForm>
         <p></p>
-        <DropdownButton
-          title="Sort by"
-          id="bg-nested-dropdown"
-          onSelect={handleSort}
-        >
-          <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
-          <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
-          <Dropdown.Item eventKey="creditAmount">credit amount</Dropdown.Item>
-          <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
-        </DropdownButton>
+        <div className="button-row">
+          <DropdownButton
+            title="Sort by"
+            id="bg-nested-dropdown"
+            onSelect={handleSort}
+          >
+            <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
+            <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
+            <Dropdown.Item eventKey="creditAmount">credit amount</Dropdown.Item>
+            <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
+          </DropdownButton>
+          <DropdownButton
+            title="Search by"
+            id="bg-nested-dropdown"
+            onSelect={handleSearch}
+          >
+            <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
+            <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
+            <Dropdown.Item eventKey="creditAmount">credit amount</Dropdown.Item>
+            <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
+          </DropdownButton>
+        </div>
         {sortType}
-        <p></p>
-        <DropdownButton
-          title="Search by"
-          id="bg-nested-dropdown"
-          onSelect={handleSearch}
-        >
-          <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
-          <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
-          <Dropdown.Item eventKey="creditAmount">credit amount</Dropdown.Item>
-          <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
-        </DropdownButton>
         {searchType}
         <Form.Group className="mb-3" controlId="formFirstName">
           <Form.Label>Search text</Form.Label>
@@ -143,6 +147,7 @@ function Records(){
         </ListGroup>
       </header>
     </>
+  );
 }
 
 export default Records;

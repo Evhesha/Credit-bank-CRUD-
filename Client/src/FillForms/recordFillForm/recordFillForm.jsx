@@ -1,10 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import "./fillForm.css";
+import "../fillForm.css";
 import { useState } from "react";
-import { postRecordData } from "../queries/records/postRecordData";
+import { postRecordData } from "../../queries/records/postRecordData";
 
-function FillForm() {
+function RecordFillForm() {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -76,4 +76,4 @@ function FillForm() {
   );
 }
 
-export default FillForm;
+export default RecordFillForm;
