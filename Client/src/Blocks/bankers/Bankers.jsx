@@ -92,8 +92,7 @@ const [data, setData] = useState([]);
           >
             <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
             <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
-            <Dropdown.Item eventKey="creditAmount">credit amount</Dropdown.Item>
-            <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
+            <Dropdown.Item eventKey="creditAmount">department number</Dropdown.Item>
           </DropdownButton>
           <DropdownButton
           variant="success"
@@ -103,8 +102,7 @@ const [data, setData] = useState([]);
           >
             <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
             <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
-            <Dropdown.Item eventKey="creditAmount">credit amount</Dropdown.Item>
-            <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
+            <Dropdown.Item eventKey="creditAmount">department number</Dropdown.Item>
           </DropdownButton>
         </div>
         {sortType}
@@ -124,21 +122,19 @@ const [data, setData] = useState([]);
         <p></p>
         <ListGroup>
           {filteredData.map((el) => (
-            <ListGroup.Item key={el.creditRecordId}>
-              {el.firstName} {el.lastName} {el.creditAmount} {el.interestRate}
+            <ListGroup.Item key={el.bankerId}>
+              {el.firstName} {el.lastName} {el.deparmentNumber}
               <div className="button-container">
                 <Button
                   variant="danger"
-                  onClick={() => handleDelete(el.creditRecordId)}
+                  onClick={() => handleDelete(el.bankerId)}
                 >
                   Delete
                 </Button>
                 <UpdateBankerPopUp
-                  id={el.creditRecordId}
+                  id={el.bankerId}
                   fn={el.firstName}
-                  ln={el.lastName}
-                  ca={el.creditAmount}
-                  ir={el.interestRate}
+                  dn={el.deparmentNumber}
                 ></UpdateBankerPopUp>
               </div>
             </ListGroup.Item>

@@ -7,12 +7,11 @@ import { postBankerData } from "../../queries/bankers/postBankerData";
 function BankerFillForm(){
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [creditAmount, setCreditAmount] = useState("");
-    const [interestRate, setInterestRate] = useState("");
+    const [departmentNumber, setDepartmentNumber] = useState("");
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (!isValidNumber(creditAmount) || !isValidNumber(interestRate)) {
+      if (!isValidNumber(departmentNumber)) {
         alert('Please enter valid numbers for Credit Amount and Interest Rate');
         return;
       }
@@ -24,8 +23,7 @@ function BankerFillForm(){
       const data = {
         firstName,
         lastName,
-        creditAmount,
-        interestRate,
+        departmentNumber,
       };
       postBankerData(data)
         .then(result => console.log('Success:', result))
@@ -56,8 +54,8 @@ function BankerFillForm(){
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Department number</Form.Label>
             <Form.Control
-              value={creditAmount}
-              onChange={(e) => setCreditAmount(e.target.value)}
+              value={departmentNumber}
+              onChange={(e) => setDepartmentNumber(e.target.value)}
             />
           </Form.Group>
           <Button variant="success" type="submit">
