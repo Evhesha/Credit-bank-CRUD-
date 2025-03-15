@@ -107,8 +107,7 @@ function Records(){
             <Dropdown.Item eventKey="interestRate">interest rate</Dropdown.Item>
           </DropdownButton>
         </div>
-        {sortType}
-        {searchType}
+        {sortType}------{searchType}
         <Form.Group className="mb-3" controlId="formFirstName">
           <Form.Label>Search text</Form.Label>
           <Form.Control

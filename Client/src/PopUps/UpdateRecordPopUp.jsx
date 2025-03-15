@@ -88,7 +88,7 @@ function UpdateRecordPopUp({ id, fn, ln, ca, ir }) {
                 onChange={(e) => setInterestRate(e.target.value)}
               />
             </Form.Group>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="danger" onClick={handleClose}>
               Close
             </Button>
             <Button variant="primary" type="submit">

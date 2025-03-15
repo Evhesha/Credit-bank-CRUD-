@@ -34,7 +34,7 @@ const [data, setData] = useState([]);
         deleteBankerData(id)
         .then((result) => {
           console.log(result);
-          const newData = data.filter((item) => item.creditRecordId !== id);
+          const newData = data.filter((item) => item.bankerId !== id);
           setData(newData);
           setFilteredData(newData);
         })
@@ -81,7 +81,6 @@ const [data, setData] = useState([]);
       <header className="App-header">
         <h3>Bankers</h3>
         <BankerFillForm></BankerFillForm>
-
         <p></p>
         <div className="button-row">
           <DropdownButton
@@ -105,8 +104,7 @@ const [data, setData] = useState([]);
             <Dropdown.Item eventKey="creditAmount">department number</Dropdown.Item>
           </DropdownButton>
         </div>
-        {sortType}
-        {searchType}
+        {sortType}------{searchType}
         <Form.Group className="mb-3" controlId="formFirstName">
           <Form.Label>Search text</Form.Label>
           <Form.Control
@@ -123,7 +121,7 @@ const [data, setData] = useState([]);
         <ListGroup>
           {filteredData.map((el) => (
             <ListGroup.Item key={el.bankerId}>
-              {el.firstName} {el.lastName} {el.deparmentNumber}
+              {el.firstName} {el.lastName} {el.departmentNumber}
               <div className="button-container">
                 <Button
                   variant="danger"
@@ -134,7 +132,8 @@ const [data, setData] = useState([]);
                 <UpdateBankerPopUp
                   id={el.bankerId}
                   fn={el.firstName}
-                  dn={el.deparmentNumber}
+                  ln={el.lastName}
+                  dn={el.departmentNumber}
                 ></UpdateBankerPopUp>
               </div>
             </ListGroup.Item>

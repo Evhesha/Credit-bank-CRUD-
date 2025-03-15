@@ -70,7 +70,7 @@ function UpdateBankerPopUp({ id, fn, ln, dn}){
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formCreditAmount">
+              <Form.Group className="mb-3" controlId="formDepartmentNumber">
                 <Form.Label>Department Number</Form.Label>
                 <Form.Control
                   type="number"
@@ -78,10 +78,10 @@ function UpdateBankerPopUp({ id, fn, ln, dn}){
                   onChange={(e) => setDepartmentNumber(e.target.value)}
                 />
               </Form.Group>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="danger" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" type="submit">
+              <Button variant="success" type="submit">
                 Save Changes
               </Button>
             </Form>
