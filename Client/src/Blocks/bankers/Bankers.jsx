@@ -91,7 +91,7 @@ const [data, setData] = useState([]);
           >
             <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
             <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
-            <Dropdown.Item eventKey="creditAmount">department number</Dropdown.Item>
+            <Dropdown.Item eventKey="departmentNumber">department number</Dropdown.Item>
           </DropdownButton>
           <DropdownButton
           variant="success"
@@ -101,7 +101,7 @@ const [data, setData] = useState([]);
           >
             <Dropdown.Item eventKey="firstName">first name</Dropdown.Item>
             <Dropdown.Item eventKey="lastName">last name</Dropdown.Item>
-            <Dropdown.Item eventKey="creditAmount">department number</Dropdown.Item>
+            <Dropdown.Item eventKey="departmentNumber">department number</Dropdown.Item>
           </DropdownButton>
         </div>
         {sortType}------{searchType}

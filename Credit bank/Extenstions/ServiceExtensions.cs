@@ -16,6 +16,8 @@ public static class ServiceExtensions
         services.AddScoped<IBankerRepository, BankerRepository>();
         services.AddScoped<IBankerService, BankerService>();
         
+        //services.AddSingleton<IProducer<Null, string>>(provider => new ProducerBuilder<Null, string>(conf).Build())
+        //(Software Boat) Подключили библиотеку, которая нигде не используется 
         return services;
     }
 }
