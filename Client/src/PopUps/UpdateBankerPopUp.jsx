@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { postBankerData } from "../queries/bankers/postBankerData";
+import { putBankerData } from "../queries/bankers/putBankerData";
 
 function UpdateBankerPopUp({ id, fn, ln, dn}){
     const [show, setShow] = useState(false);
@@ -16,27 +16,30 @@ function UpdateBankerPopUp({ id, fn, ln, dn}){
   
     const handleSubmit = (e) => {
       e.preventDefault();
+    
       if (!isValidNumber(departmentNumber)) {
-        alert('Please enter valid numbers for Credit Amount and Interest Rate');
+        alert('Please enter valid numbers for Department Number');
         return;
       }
-      if (firstName === "" || lastName === ""){
-        alert('First name and Last name can not be empty');
+      if (firstName === "" || lastName === "") {
+        alert('First name and Last name cannot be empty');
         return;
       }
-      
+    
       const data = {
         firstName,
         lastName,
-        departmentNumber
+        departmentNumber,
       };
-      postBankerData(data, id)
+    
+      putBankerData(data, id)
         .then((result) => {
           console.log("Success:", result);
           handleClose();
         })
         .catch((error) => console.error("Error:", error));
     };
+    
   
     const isValidNumber = (value) => {
       return !isNaN(value) && value > 0;

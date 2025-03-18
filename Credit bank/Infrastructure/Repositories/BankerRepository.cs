@@ -7,7 +7,7 @@ namespace Credit_bank.Infrastructure.Repositories;
 public class BankerRepository : IBankerRepository
 {
     private readonly ApplicationDbContext _context;
-    
+    //
     public BankerRepository(ApplicationDbContext context)
     {
         _context = context;
@@ -60,7 +60,7 @@ public class BankerRepository : IBankerRepository
         int departmentNumber)
     {
         var banker = await _context.Bankers.FindAsync(id);
-        if (banker != null)
+        if (banker is not null)
         {
             banker.FirstName = firstName;
             banker.LastName = lastName;

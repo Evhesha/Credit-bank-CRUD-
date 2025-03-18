@@ -2,6 +2,7 @@
 
 public interface IBankerService
 {
+    //
     Task<List<Models.Banker>> GetAllBankers();
     Task<Models.Banker?> GetBankerById(int id);
     Task<int> CreateBanker(Models.Banker banker);

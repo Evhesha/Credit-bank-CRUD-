@@ -1,8 +1,6 @@
 ﻿using Credit_bank.Abstractions.Banker;
-using Credit_bank.Infrastructure;
 using Credit_bank.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Credit_bank.Controllers;
 
@@ -11,7 +9,7 @@ namespace Credit_bank.Controllers;
 public class BankerController : ControllerBase
 {
     private readonly IBankerService _service;
-
+    //
     public BankerController(IBankerService service)
     {
         _service = service; 
@@ -106,7 +104,7 @@ public class BankerController : ControllerBase
 //(Gas Factory) избыточная проверка
 
     [HttpPut("{id:int}")]
-    public async Task<ActionResult<Banker>> UpdateBanker(int id, Banker banker)
+    public async Task<ActionResult<int>> UpdateBanker(int id, Banker banker)
     {
         var bankerId = await _service.UpdateBanker(
             id,

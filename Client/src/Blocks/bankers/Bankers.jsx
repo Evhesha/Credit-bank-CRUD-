@@ -121,7 +121,7 @@ const [data, setData] = useState([]);
         <ListGroup>
           {filteredData.map((el) => (
             <ListGroup.Item key={el.bankerId}>
-              {el.firstName} {el.lastName} {el.departmentNumber}
+              {el.bankerId} {el.firstName} {el.lastName} {el.departmentNumber}
               <div className="button-container">
                 <Button
                   variant="danger"
