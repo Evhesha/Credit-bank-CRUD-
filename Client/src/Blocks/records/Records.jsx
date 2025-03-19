@@ -67,18 +67,18 @@ function Records(){
 
   useEffect(() => {
     if (searchText && searchType) {
-      const searchedData = data.filter((item) =>
-        item[searchType]
-          .toString()
-          .toLowerCase()
-          .includes(searchText.toLowerCase())
-      );
+      const searchedData = data.filter((item) => {
+        const itemValue = item[searchType].toString().toLowerCase();
+        const searchValue = searchText.toLowerCase();
+  
+        return itemValue === searchValue || itemValue.startsWith(searchValue);
+      });
       setFilteredData(searchedData);
     } else {
       setFilteredData(data);
     }
   }, [searchText, searchType, data]);
-
+   
   return (
     <>
       <header className="App-header">
