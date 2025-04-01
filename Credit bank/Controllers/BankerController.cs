@@ -9,17 +9,11 @@ namespace Credit_bank.Controllers;
 public class BankerController : ControllerBase
 {
     private readonly IBankerService _service;
-    //
+
     public BankerController(IBankerService service)
     {
         _service = service; 
     }
-    
-    // public BankerController()
-    // {
-    //  
-    // }
-    // (Analysis paralysis) планируем еще один конструктор но ничего не делаем
 
     [HttpGet]
     public async Task<ActionResult<List<Banker>>> GetAllBankers()
@@ -67,42 +61,6 @@ public class BankerController : ControllerBase
         return Ok(bankerId);
     }
     
-    // [HttpPost("create-banker")]
-    // public async Task<ActionResult> CreateBanker([FromBody] Banker banker)
-    // {
-    //     using (var dbContext = new ApplicationDbContext(new DbContextOptions<ApplicationDbContext>()))
-    //     {
-    //         var newBanker = new Banker
-    //         {
-    //             FirstName = banker.FirstName,
-    //             LastName = banker.LastName,
-    //             DepartmentNumber = banker.DepartmentNumber
-    //         };
-    //     if (string.IsNullOrEmpty(bankerEntity.FirstName))
-    //     {
-    //         return BadRequest("First name cannot be empty.");
-    //     }
-    //
-    //      if (string.IsNullOrEmpty(bankerEntity.LastName))
-    //      {
-    //     return BadRequest("Last name cannot be empty.");
-    //      }
-    //
-    //      if (bankerEntity.DepartmentNumber <= 0)
-    //      {
-    //     return BadRequest("Department number must be greater than 0.");
-    //      }
-    //
-    //         dbContext.Bankers.Add(newBanker);
-    //         await dbContext.SaveChangesAsync();
-    //
-    //         return Ok(newBanker);
-    //     }
-    // }
-//(Big ball of Mud) Логика взаимодействия с БД внедрена прямо в контроллер, нарушая уровень ответственности.
-//(Magic Button) вся обработка в одном методе котроллера
-//(Gas Factory) избыточная проверка
-
     [HttpPut("{id:int}")]
     public async Task<ActionResult<int>> UpdateBanker(int id, Banker banker)
     {
@@ -114,30 +72,10 @@ public class BankerController : ControllerBase
         
         return Ok(bankerId);
     }
-    
-    // [HttpPut("{id:int}")]
-    // public async Task<ActionResult<Banker>> UpdateBanker(int id, Banker banker)
-    // {
-    //     var bankerId = await _service.UpdateBanker(
-    //         id,
-    //         banker.FirstName,
-    //         banker.LastName,
-    //         banker.DepartmentNumber);
-    //     
-    //     return Ok(52); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // }
-    //(Magic number) Возвращаем число не зная его предназначения
 
     [HttpDelete("{id:int}")]
     public async Task<ActionResult<Banker>> DeleteBanker(int id)
     {
         return Ok(await _service.DeleteBanker(id));
     }
-    
-    // [HttpDelete("{id:int}")]
-    // public async Task<ActionResult<Banker>> DeleteBanker(int id)
-    // {
-    //     return Ok(id);
-    // }
-    //(Smoke and mirrors) делаем вид, что метод рабочий
 }

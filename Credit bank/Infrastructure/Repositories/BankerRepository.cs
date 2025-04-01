@@ -83,12 +83,4 @@ public class BankerRepository : IBankerRepository
         
         return id;
     }
-    
-    // public async Task<int> DeleteBankerAsync(int id)
-    // {
-    //     var banker = await _context.Bankers.FindAsync(id);
-    //     _context.Bankers.Remove(banker);
-    //     return id;
-    // }
-    //(Improbability Factor) Проблема с удалением возможно не возникнет в клиентском GUI, но мы ее игнорируем
 }
